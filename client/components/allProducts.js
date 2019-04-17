@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { gettingAllProducts} from '../store/productsReducer'
+import dummyData from '../../server/db/productDummyData'
 
 class AllProducts extends Component {
     
@@ -9,8 +10,10 @@ class AllProducts extends Component {
     }
 
     render() {
-        const {products} = this.props;
+        // const {products} = this.props;
         //add ternary for if inventory= 0, render ...not found page? / change something in css?
+
+        const products = dummyData;
         return (
             <div>
                 {products.map(product => (

@@ -19,6 +19,7 @@ const itemPurchaseHistory = db.define('itemPurchaseHistory', {
   }
 })
 
+console.log(Product, 'product in index.js')
 OrderHistory.belongsTo(User)
 User.hasMany(OrderHistory)
 
@@ -30,6 +31,7 @@ Product.belongsToMany(OrderHistory, {
 OrderHistory.belongsToMany(Product, {
   through: 'itemPurchaseHistory'
 })
+
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
