@@ -13,14 +13,14 @@ module.exports = db.define('product', {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      isEmpty: false
+      notEmpty: true
     }
   },
   inventory: {
     type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
-      isEmpty: false,
+      notEmpty: true,
       min: 0
     }
   },
@@ -28,7 +28,7 @@ module.exports = db.define('product', {
     type: Sequelize.DECIMAL,
     allowNull: false,
     validate: {
-      isEmpty: false,
+      notEmpty: true,
       isDecimal: true,
       min: 0
     }
