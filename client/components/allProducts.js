@@ -13,6 +13,8 @@ class AllProducts extends Component {
         const {products} = this.props;
         //add ternary for if inventory= 0, render ...not found page? / change something in css?
 
+        localStorage.setItem('cat', 'meow')
+
         return (
             <div>
                 {products.map(product => (

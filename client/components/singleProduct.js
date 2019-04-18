@@ -18,11 +18,15 @@ class SingleProduct extends Component {
         else return (
             <div>
                 <h2>{product.name}</h2>
+                <p>{text}</p>
                 <img src={product.imageUrl} />
+                <button type="button">Add to Cart</button>
             </div>
         )
     }
 }
+
+//addToCart(state.product)
 
 const mapStateToProps = state => {
     return {

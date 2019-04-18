@@ -34,22 +34,11 @@ router.get('/', async (req, res, next) => {
           "We're sorry. This product is no longer available or has sold out."
         )
       }
-      res.json(product)
+      else res.json(product)
     } catch (err) {
       next(err)
     }
-    try {
-      const id = req.params.id
-      const product = await Product.findByPk(id)
-      if (!product) {
-        res.json(
-          "We're sorry. This product is no longer available or has sold out."
-        )
-      }
-      res.json(product)
-    } catch (err) {
-      next(err)
-    }
+    
   })
 })
 //error handling??
