@@ -8,7 +8,7 @@ describe('Order model', () => {
   })
 
   describe('instanceMethods', () => {
-    describe('correctShippingPref', () => {
+    describe('correct ShippingPref', () => {
       let testOrder
 
       beforeEach(async () => {
@@ -18,12 +18,8 @@ describe('Order model', () => {
       })
 
       it('returns true if the shipping preference is correct', () => {
-        expect(testOrder.correctShippingPref('rush')).to.be.equal(true)
+        expect(testOrder.shippingPref).to.be.equal('rush')
       })
-
-      it('returns false if the shipping preference is incorrect', () => {
-        expect(testOrder.correctShippingPref('standard')).to.be.equal(false)
-      })
-    }) // end describe('correctShippingPref')
-  }) // end describe('instanceMethods')
-}) // end describe('Order model')
+    })
+  })
+})
