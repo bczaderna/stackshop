@@ -28,7 +28,7 @@ export const gettingAllProducts = () => {
 
 export const gettingSingleProduct = (id) => {
     return async dispatch => {
-        let response = axios.get(`/api/products/${id}`)
+        let response = await axios.get(`/api/products/${id}`)
         let product = response.data
         dispatch(gotSingleProduct(product))
     }

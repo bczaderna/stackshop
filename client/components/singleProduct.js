@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { gettingSingleProduct} from '../store/productsReducer'
 
-class AllProducts extends Component {
+class SingleProduct extends Component {
     
     //On Tuesday, get id from React Router using req.params.match...? then use id as an argument in the thunk
     componentDidMount() {
@@ -11,11 +11,14 @@ class AllProducts extends Component {
     }
 
     render() {
-        const {product} = this.props;
+        //console.log(this.props)
+        const {product} = this.props
         
-        return (
+        if (!product.id) return <div>Loading...</div>
+        else return (
             <div>
-                {product.name}
+                <h2>{product.name}</h2>
+                <img src={product.imageUrl} />
             </div>
         )
     }
@@ -33,4 +36,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(singleProduct)
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct)
