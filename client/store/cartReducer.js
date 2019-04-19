@@ -32,33 +32,40 @@ export const deletedFromCart = deletedProduct => ({
 
 //initial state
 const initialState = {
-  cart: []
+  cart: [],
+  quantities: {}
 }
 
 //NOTE: we will need to add logic for finding totalCartPrice and totalCartItems in the front-end component, inside the render, before the return.
 
 //reducer
 export default function(state = initialState, action) {
+  let newState
   switch (action.type) {
     case ADDED_TO_CART:
-      return {...state, cart: [...state.cart, action.addedProduct]}
-    case DELETED_FROM_CART:
       return {
         ...state,
-        cart: state.cart.filter(product => product.id !== action.productId)
+        cart: [...state.cart, action.addedProduct],
+        quantities: {...state.quantities, [action.addedProduct.name]: 1}
+      }
+    case DELETED_FROM_CART:
+      newState = Object.assign({}, state)
+      delete newState.quantities[action.deletedProduct.name]
+      return {
+        ...state,
+        cart: state.cart.filter(product => product.id !== action.productId),
+        quantities: newState.quantities
       }
     case INCREASED_QUANTITY:
-      return {...state, cart: [...state.cart, action.product]}
-
+      newState = Object.assign({}, state)
+      newState.quantities[action.deletedProduct.name]++
+      return {...state, quantities: newState.quantities}
     case DECREASED_QUANTITY:
-      //what is deletedProduct?
-      let indexToDelete = state.cart.indexOf(deletedProduct)
-
-      return {
-        ...state,
-        cart: state.cart.filter((product, index) => index !== indexToDelete)
+      newState = Object.assign({}, state)
+      if (newState.quantities[action.product.name] > 1) {
+        newState.quantities[action.product.name]--
       }
-
+      return {...state, quantities: newState.quantities}
     default:
       return state
   }
