@@ -12,7 +12,7 @@ class CartRow extends Component {
     return (
       <tr>
         <td>
-          <img src={item.imageUrl} />
+          <img src={item.imageUrl} className="cart-item-img" />
         </td>
         <td>{item.name}</td>
         <td>{/*Insert Quantity Here*/}</td>
