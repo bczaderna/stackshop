@@ -14,9 +14,20 @@ class Cart extends Component {
     return (
       <div>
         <Navbar />
-        {itemsInBag.map(item => <CartRow key={item.id} item={item} />)}
+        <table id="cart">
+          <tbody>
+            <tr className="table-header">
+              <td>ITEM</td>
+              <td>NAME</td>
+              <td>QTY</td>
+              <td>ACTIONS</td>
+              <td>PRICE</td>
+            </tr>
+            {itemsInBag.map(item => <CartRow key={item.id} item={item} />)}
+          </tbody>
+        </table>
         <div>
-          Your total:
+          YOUR TOTAL:
           {itemsInBag.reduce((totalPrice, item) => {
             return totalPrice + item.price
           })}
