@@ -19,3 +19,18 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+button {
+  padding: 1em 2em;
+  background-color: #da5a8b;
+  color: white;
+  border: none;
+  font-size: 1em;
+  transition: all 0.1s ease;
+  outline: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #e295b9;
+}
