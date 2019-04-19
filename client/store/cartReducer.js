@@ -28,15 +28,14 @@ export const deletedFromCart = deletedProduct => ({
   deletedProduct
 })
 
-//thunk creators
-
+//thunk creators -- seem unnecessary?
 
 //initial state
 const initialState = {
   cart: []
 }
 
-//NOTE: we will need to add logic for finding totalCartPrice and totalCartItems in the front-end component, inside the render.
+//NOTE: we will need to add logic for finding totalCartPrice and totalCartItems in the front-end component, inside the render, before the return.
 
 //reducer
 export default function(state = initialState, action) {
@@ -64,5 +63,3 @@ export default function(state = initialState, action) {
       return state
   }
 }
-
-
