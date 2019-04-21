@@ -47,6 +47,7 @@ export const gettingSingleProduct = id => {
 //   return async dispatch => {
 //     const response = await axios.post('/api/checkout', order)
 //     const newOrder = response.data
+        //do I need another axios post request to add to the itemPurchases db?
 //     //what to do with the inventory change? Do I need to create a 'getInventory' action and thunk that will get the inventory from the db after the new order has been placed in the db?
 
 //     dispatch(placedAnOrder(newOrder))

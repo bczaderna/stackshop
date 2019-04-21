@@ -30,28 +30,28 @@ router.get('/:id', async (req, res, next) => {
 })
 
 //router to update the inventory in Products db
-router.put("/:id", async (req, res, next) => {
- try {
-  //how do we know what quantity is being purchased?
-  let quantityOrdered = await req.body.quantity
+// router.put("/:id", async (req, res, next) => {
+//  try {
+//   //how do we know what quantity is being purchased?
+//   let quantityOrdered = await req.body.quantity
  
-  //find product we want to change
-  let product = await Product.findByPk(req.params.id)
+//   //find product we want to change
+//   let product = await Product.findByPk(req.params.id)
 
-  //figure out how much of it is left
-  let currentQuantity = product.dataValues.quantity
-​
-  let newQuantity = currentQuantity - quantityOrdered;
-​
-  await product.updateAttributes({
-   quantity: newQuantity
-  })
-  res.status(200).send();
- }
- catch (err){
-​   next(err)
- }
-})
+//   //figure out how much of it is left
+//   let currentQuantity = product.dataValues.quantity
+// ​
+//   let newQuantity = currentQuantity - quantityOrdered;
+// ​
+//   await product.updateAttributes({
+//    quantity: newQuantity
+//   })
+//   res.status(200).send();
+//  }
+//  catch (err){
+// ​   next(err)
+//  }
+// })
 
 //error handling??
 module.exports = router;

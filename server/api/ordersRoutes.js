@@ -2,7 +2,7 @@ const router = require('express').Router()
 const {Order, itemPurchase} = require('../db/models')
 const db = require('../db')
 
-//we'll need to add a '/checkout' front-end route to display a 'thank you for your order' component
+
 //this post route will deal with adding info to the Order db once 'checkout' button is clicked.
 router.post('/', async (req, res, next) => {
     try {
