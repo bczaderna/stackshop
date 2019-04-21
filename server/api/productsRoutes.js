@@ -4,18 +4,10 @@ const db = require('../db')
 //const Product = require('../db/models/product')
 module.exports = router
 
+
+
 //route to get all products
 router.get('/', async (req, res, next) => {
-  try {
-    const products = await Product.findAll()
-    res.json(products)
-  } catch (err) {
-    next(err)
-  }
-  module.exports = router
-
-  //route to get all products
-  router.get('/', async (req, res, next) => {
     try {
       const products = await Product.findAll()
       res.json(products)
@@ -24,8 +16,8 @@ router.get('/', async (req, res, next) => {
     }
   })
 
-  //route to get just one product
-  router.get('/:id', async (req, res, next) => {
+//route to get just one product
+router.get('/:id', async (req, res, next) => {
     try {
       const id = req.params.id
       const product = await Product.findByPk(id)
@@ -40,5 +32,33 @@ router.get('/', async (req, res, next) => {
     }
     
   })
+
+//route to update quantities when a product is purchased
+router.put('/:id', async (req, res, next) => {
+  try {
+    //how do we know what quantity is being purchased?
+    let quantityOrdered = req.body.quantity
+    //how would this be set?
+
+    let id = req.params.id
+    
+    //find product we want to change
+    let product = await Product.findByPk(id)
+
+    //figure out how much of it is left
+    let currentQuantity = product.dataValues.quantity
+
+    let newQuantity = currentQuantity -quantityOrdered
+
+    await product.updateAttributes({
+      quantity: newQuantity
+    }
+    )
+    res.status(200)
+  }
+  catch {
+
+  }
 })
+
 //error handling??
