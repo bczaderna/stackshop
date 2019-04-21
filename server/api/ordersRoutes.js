@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {Order, itemPurchase} = require('../db/models')
 const db = require('../db')
 
+//Can I combine these POST routes, given that we will always want them to happen together?
 
 //this post route will deal with adding info to the Order db once 'checkout' button is clicked.
 router.post('/', async (req, res, next) => {
