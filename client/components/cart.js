@@ -1,19 +1,15 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-// import Navbar from './navbar'
 import CartRow from './cartRow'
-
-// to do:
-// x add URL route to cart on routes.js file
-// - add link functionality to checkout button
-// x add quantity count to CartRow
-// x add + and - buttons for quantity
-// - update test specs
-// - add ternary to display full cart or "your cart is empty"
+import {
+  increasedQuantity,
+  decreasedQuantity,
+  deletedFromCart
+} from '../store/cartReducer'
 
 class Cart extends Component {
   render() {
-    const {itemsInBag} = this.props
+    const itemsInBag = this.props.itemsInBag
 
     return (
       <div>
@@ -26,14 +22,23 @@ class Cart extends Component {
               <td>ACTIONS</td>
               <td>PRICE</td>
             </tr>
-            {itemsInBag.map(item => <CartRow key={item.id} item={item} />)}
+            {itemsInBag.map(item => (
+              <CartRow
+                key={item.id}
+                item={item}
+                quantities={this.props.quantities}
+                increasedQuantity={this.props.increasedQuantity}
+                decreasedQuantity={this.props.decreasedQuantity}
+                deletedFromCart={this.props.deletedFromCart}
+              />
+            ))}
           </tbody>
         </table>
         <div>
           YOUR TOTAL:
           {itemsInBag.reduce((totalPrice, item) => {
             return totalPrice + item.price
-          })}
+          }, 0)}
         </div>
         <button type="button">CHECKOUT</button>
       </div>
@@ -43,16 +48,17 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
   return {
-    itemsInBag: state.cart.cart
+    itemsInBag: state.cart.cart,
+    quantities: state.cart.quantities
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     increasedQuantity: () => dispatch(increasedQuantity()),
-//     decreasedQuantity: () => dispatch(decreasedQuantity()),
+const mapDispatchToProps = dispatch => {
+  return {
+    increasedQuantity: () => dispatch(increasedQuantity()),
+    decreasedQuantity: () => dispatch(decreasedQuantity()),
+    deletedFromCart: () => dispatch(deletedFromCart())
+  }
+}
 
-//   }
-// }
-
-export default connect(mapStateToProps)(Cart)
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
