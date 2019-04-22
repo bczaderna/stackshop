@@ -27,7 +27,6 @@ class ConfirmationPage extends Component {
         //Or would I just make the parameter this.props.cart?
 
         return (
-            <Navbar />
             // <Cart />
             // <ShippingInfoForm />
 

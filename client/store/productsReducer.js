@@ -43,15 +43,15 @@ export const gettingSingleProduct = id => {
 
 //in the 'checkout' or the 'confirmCheckout' component, will will need an onClick that will trigger an event handler that dispatches the 'gettingSingleProduct' thunk. This means we'll need to hook this func up through mapDispatchToProps.
 
-// export const placeAnOrder = order => {
-//   return async dispatch => {
-//     const response = await axios.post('/api/checkout', order)
-//     const newOrder = response.data
-        //do I need another axios post request to add to the itemPurchases db? Or can I combine the two post routes into one?
-//     
-//     dispatch(placedAnOrder(newOrder))
-//   }
-// }
+export const placeAnOrder = order => {
+  return async dispatch => {
+    const response = await axios.post('/api/checkout', order)
+    const newOrder = response.data
+        // do I need another axios post request to add to the itemPurchases db? Or can I combine the two post routes into one?
+    
+    dispatch(placedAnOrder(newOrder))
+  }
+}
 
 //initial state
 const initialState = {
