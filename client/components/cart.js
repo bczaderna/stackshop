@@ -1,19 +1,22 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Navbar from './navbar'
+// import Navbar from './navbar'
 import CartRow from './cartRow'
 
-class Cart extends Component {
-  //   componentDidMount() {
-  //     this.props.gettingAllProducts()
-  //   }
+// to do:
+// x add URL route to cart on routes.js file
+// - add link functionality to checkout button
+// x add quantity count to CartRow
+// x add + and - buttons for quantity
+// - update test specs
+// - add ternary to display full cart or "your cart is empty"
 
+class Cart extends Component {
   render() {
     const {itemsInBag} = this.props
 
     return (
       <div>
-        <Navbar />
         <table id="cart">
           <tbody>
             <tr className="table-header">
@@ -32,6 +35,7 @@ class Cart extends Component {
             return totalPrice + item.price
           })}
         </div>
+        <button type="button">CHECKOUT</button>
       </div>
     )
   }
@@ -39,7 +43,7 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
   return {
-    itemsInBag: state.items
+    itemsInBag: state.cart.items
   }
 }
 
