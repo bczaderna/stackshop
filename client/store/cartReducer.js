@@ -8,10 +8,12 @@ export const DECREASED_QUANTITY = 'DECREASED_QUANTITY'
 export const DELETED_FROM_CART = 'DELETED_FROM_CART'
 
 //action creators
-export const addedToCart = addedProduct => ({
-  type: ADDED_TO_CART,
-  addedProduct
-})
+export const addedToCart = addedProduct => {
+  return {
+    type: ADDED_TO_CART,
+    addedProduct
+  }
+}
 
 export const increasedQuantity = product => ({
   type: INCREASED_QUANTITY,
@@ -43,6 +45,7 @@ export default function(state = initialState, action) {
   let newState
   switch (action.type) {
     case ADDED_TO_CART:
+      // console.log('DOES THIS REACH REDUCER?')
       return {
         ...state,
         cart: [...state.cart, action.addedProduct],

@@ -11,8 +11,7 @@ class SingleProduct extends Component {
   }
 
   render() {
-    //console.log(this.props)
-    const {product} = this.props
+    const {product, cart} = this.props
 
     if (!product.id) return <div>Loading...</div>
     else
@@ -20,7 +19,12 @@ class SingleProduct extends Component {
         <div>
           <h2>{product.name}</h2>
           <img src={product.imageUrl} />
-          <button type="button" onClick={addedToCart}>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.addedToCart(product)
+            }}
+          >
             Add to Cart
           </button>
         </div>
@@ -40,7 +44,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     gettingSingleProduct: id => dispatch(gettingSingleProduct(id)),
-    addedToCart: product => dispatch(addedToCart(product))
+    addedToCart: addedProduct => dispatch(addedToCart(addedProduct))
   }
 }
 
