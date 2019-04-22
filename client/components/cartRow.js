@@ -23,7 +23,10 @@ class CartRow extends Component {
         </td>
         <td>{item.name}</td>
         <td>
-          <button type="button" onClick={decreasedQuantity}>
+          <button
+            type="button"
+            onClick={quantities[item.name] > 1 && decreasedQuantity}
+          >
             -
           </button>
           {quantities[item.name]}
