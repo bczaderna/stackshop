@@ -32,35 +32,6 @@ router.get('/:id', async (req, res, next) => {
     
   })
 
-//route to update quantities when a product is purchased
-router.put('/:id', async (req, res, next) => {
-  try {
-    //how do we know what quantity is being purchased?
-    let quantityOrdered = req.body.quantity
-    //how would this be set?
-
-    let id = req.params.id
-    
-    //find product we want to change
-    let product = await Product.findByPk(id)
-
-    //figure out how much of it is left
-    let currentQuantity = product.dataValues.quantity
-
-    let newQuantity = currentQuantity -quantityOrdered
-
-    await product.updateAttributes({
-      quantity: newQuantity
-    }
-    )
-    res.status(200)
-  }
-  catch (err){
-    next(err)
-  }
-})
-
-
 
 //error handling??
 module.exports = router;

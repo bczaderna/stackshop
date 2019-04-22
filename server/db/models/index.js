@@ -19,6 +19,19 @@ const itemPurchase = db.define('itemPurchase', {
   }
 })
 
+itemPurchase.beforeCreate(((instance) => {
+  //how do we know the quantity ordered?
+  let quantityOrdered = instance.quantity
+
+  //find the thing and find out how much is left
+  let productToUpdate = Product.findByPk(instance.id)
+  let currentInventory = productToUpdate.inventory
+  let newInventory = currentInventory - quantityOrdered
+
+  //decrement the inventory number
+  productToUpdate.update({inventory: newInventory})
+}))
+
 Order.belongsTo(User)
 User.hasMany(Order)
 
