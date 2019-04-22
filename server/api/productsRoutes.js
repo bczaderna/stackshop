@@ -1,8 +1,7 @@
 const router = require('express').Router()
 const {Product} = require('../db/models')
 const db = require('../db')
-//const Product = require('../db/models/product')
-module.exports = router
+
 
 
 
@@ -56,9 +55,12 @@ router.put('/:id', async (req, res, next) => {
     )
     res.status(200)
   }
-  catch {
-
+  catch (err){
+    next(err)
   }
 })
 
+
+
 //error handling??
+module.exports = router;
