@@ -3,17 +3,20 @@ const {Order, itemPurchase, Product} = require('../db/models')
 const db = require('../db')
 
 
-//Can I combine these POST routes, given that we will always want them to happen together?
 
-//this post route will deal with adding info to the Order db once 'checkout' button is clicked.
 router.post('/', async (req, res, next) => {
     try {
+        let id;
       //req.body is the cart
       //cart will have an array of things being ordered and a quantity object
-
+      if (req.user) {
+          id = req.user.id
+      } else {
+          id = 1
+      }
       //create a record on the order database
       let order = {
-        userId: req.user.id
+        userId: id
       }
 
       let newOrder = await Order.create(order);
@@ -36,6 +39,8 @@ router.post('/', async (req, res, next) => {
             productId: product.id,
             orderId: newOrder.id
           }
+
+          console.log(itemOrdered, 'WHAT IS ITEM ORDERED')
 
           await itemPurchase.create(itemOrdered)
         }

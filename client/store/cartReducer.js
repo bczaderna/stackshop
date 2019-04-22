@@ -3,6 +3,7 @@ export const ADDED_TO_CART = 'ADDED_TO_CART'
 export const INCREASED_QUANTITY = 'INCREASED_QUANTITY'
 export const DECREASED_QUANTITY = 'DECREASED_QUANTITY'
 export const DELETED_FROM_CART = 'DELETED_FROM_CART'
+const PLACED_AN_ORDER = 'PLACED_AN_ORDER'
 
 //action creators
 export const addedToCart = addedProduct => ({
@@ -24,6 +25,24 @@ export const deletedFromCart = deletedProduct => ({
   type: DELETED_FROM_CART,
   deletedProduct
 })
+
+const placedAnOrder = orderNum => ({
+  type: PLACED_AN_ORDER,
+  orderNum
+})
+
+//thunk creators
+
+export const placeAnOrder = cart => {
+  return async dispatch => {
+    const response = await axios.post('/api/checkout', cart)
+    const newOrderNum = response.data
+    console.log(newOrderNum, 'new order num')
+
+    
+    dispatch(placedAnOrder(newOrderNum))
+  }
+}
 
 //initial state
 const initialState = {
@@ -60,7 +79,9 @@ export default function(state = initialState, action) {
       if (newQuantities[action.product.name] > 1) {
         newQuantities[action.product.name]--
       }
-      return {...state, quantities: newQuantities}
+      return {...state, quantities: newState.quantities}
+    case PLACED_AN_ORDER:
+     return initialState;
     default:
       return state
   }

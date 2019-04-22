@@ -19,17 +19,21 @@ const itemPurchase = db.define('itemPurchase', {
   }
 })
 
-itemPurchase.beforeCreate(((instance) => {
+itemPurchase.beforeCreate((async (instance) => {
   //how do we know the quantity ordered?
-  let quantityOrdered = instance.quantity
+  let quantityOrdered = instance.dataValues.quantity
 
   //find the thing and find out how much is left
-  let productToUpdate = Product.findByPk(instance.id)
-  let currentInventory = productToUpdate.inventory
+  let productToUpdate = await Product.findByPk(instance.dataValues.productId)
+  console.log(instance.dataValues.productId, 'instance product id?')
+  console.log(productToUpdate, 'product to update?')
+  
+  let currentInventory = productToUpdate.dataValues.inventory
   let newInventory = currentInventory - quantityOrdered
+  console.log(newInventory, 'new inventory')
 
   //decrement the inventory number
-  productToUpdate.update({inventory: newInventory})
+  await productToUpdate.update({inventory: newInventory})
 }))
 
 Order.belongsTo(User)

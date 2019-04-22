@@ -5,7 +5,7 @@ import history from '../history'
 //const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const GOT_ALL_PRODUCTS = 'GOT_ALL_PRODUCTS'
 const GOT_SINGLE_PRODUCT = 'GOT_SINGLE_PRODUCT'
-// const PLACED_AN_ORDER = 'PLACED_AN_ORDER'
+
 
 //action creators
 const gotAllProducts = products => ({
@@ -18,10 +18,6 @@ const gotSingleProduct = product => ({
   product
 })
 
-// const placedAnOrder = order => ({
-//   type: PLACED_AN_ORDER,
-//   order
-// })
 
 //thunk creators
 export const gettingAllProducts = () => {
@@ -41,17 +37,7 @@ export const gettingSingleProduct = id => {
   }
 }
 
-//in the 'checkout' or the 'confirmCheckout' component, will will need an onClick that will trigger an event handler that dispatches the 'gettingSingleProduct' thunk. This means we'll need to hook this func up through mapDispatchToProps.
 
-export const placeAnOrder = order => {
-  return async dispatch => {
-    const response = await axios.post('/api/checkout', order)
-    const newOrder = response.data
-        // do I need another axios post request to add to the itemPurchases db? Or can I combine the two post routes into one?
-    
-    dispatch(placedAnOrder(newOrder))
-  }
-}
 
 //initial state
 const initialState = {
@@ -68,18 +54,6 @@ export default function(state = initialState, action) {
       return {...state, products: action.products}
     case GOT_SINGLE_PRODUCT:
       return {...state, selectedProduct: action.product}
-    // case PLACED_AN_ORDER:
-    //   newState = Object.assign({}, state)
-    //   order = action.order
-    //   newState.products.map(product => {
-    //     if (action.order.id === product.id) {
-    //       product.inventory--
-    //     }
-    //   })
-    //   return {
-    //     ...state,
-    //     products: newState.products
-    //   }
     default:
       return state
   }
