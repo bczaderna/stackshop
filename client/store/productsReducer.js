@@ -47,7 +47,7 @@ export const gettingSingleProduct = id => {
 //   return async dispatch => {
 //     const response = await axios.post('/api/checkout', order)
 //     const newOrder = response.data
-        //do I need another axios post request to add to the itemPurchases db?
+        //do I need another axios post request to add to the itemPurchases db? Or can I combine the two post routes into one?
 //     
 //     dispatch(placedAnOrder(newOrder))
 //   }
