@@ -25,7 +25,7 @@ const CartRow = props => {
           Remove
         </button>
       </td>
-      <td>{item.price}</td>
+      <td>${item.price}.00</td>
     </tr>
   )
 }

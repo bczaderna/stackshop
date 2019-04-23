@@ -38,10 +38,10 @@ class Cart extends Component {
           </tbody>
         </table>
         <div>
-          YOUR TOTAL:
+          YOUR TOTAL: $
           {itemsInBag.reduce((totalPrice, item) => {
             return totalPrice + item.price
-          }, 0)}
+          }, 0)}.00
         </div>
         <button type="button">CHECKOUT</button>
       </div>
