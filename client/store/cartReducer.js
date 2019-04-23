@@ -3,7 +3,7 @@ export const ADDED_TO_CART = 'ADDED_TO_CART'
 export const INCREASED_QUANTITY = 'INCREASED_QUANTITY'
 export const DECREASED_QUANTITY = 'DECREASED_QUANTITY'
 export const DELETED_FROM_CART = 'DELETED_FROM_CART'
-const PLACED_AN_ORDER = 'PLACED_AN_ORDER'
+export const PLACED_AN_ORDER = 'PLACED_AN_ORDER'
 
 //action creators
 export const addedToCart = addedProduct => ({

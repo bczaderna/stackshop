@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-//do I need an addShippingInfo thunk? Do I need an ordersReducer?
+//make this a dumb component for now that just renders out a fake form ?
 
 class ShippingInfoForm extends Component {
   constructor(props) {
