@@ -8,12 +8,10 @@ export const DECREASED_QUANTITY = 'DECREASED_QUANTITY'
 export const DELETED_FROM_CART = 'DELETED_FROM_CART'
 
 //action creators
-export const addedToCart = addedProduct => {
-  return {
-    type: ADDED_TO_CART,
-    addedProduct
-  }
-}
+export const addedToCart = addedProduct => ({
+  type: ADDED_TO_CART,
+  addedProduct
+})
 
 export const increasedQuantity = product => ({
   type: INCREASED_QUANTITY,
@@ -30,8 +28,6 @@ export const deletedFromCart = deletedProduct => ({
   deletedProduct
 })
 
-//thunk creators -- seem unnecessary?
-
 //initial state
 const initialState = {
   cart: [],
@@ -42,33 +38,34 @@ const initialState = {
 
 //reducer
 export default function(state = initialState, action) {
-  let newState
+  let newQuantities
   switch (action.type) {
     case ADDED_TO_CART:
-      // console.log('DOES THIS REACH REDUCER?')
       return {
         ...state,
         cart: [...state.cart, action.addedProduct],
         quantities: {...state.quantities, [action.addedProduct.name]: 1}
       }
     case DELETED_FROM_CART:
-      newState = Object.assign({}, state)
-      delete newState.quantities[action.deletedProduct.name]
+      newQuantities = Object.assign({}, state.quantities)
+      delete newQuantities[action.deletedProduct.name]
       return {
         ...state,
-        cart: state.cart.filter(product => product.id !== action.productId),
-        quantities: newState.quantities
+        cart: state.cart.filter(
+          product => product.id !== action.deletedProduct.id
+        ),
+        quantities: newQuantities
       }
     case INCREASED_QUANTITY:
-      newState = Object.assign({}, state)
-      newState.quantities[action.deletedProduct.name]++
-      return {...state, quantities: newState.quantities}
+      newQuantities = Object.assign({}, state.quantities)
+      newQuantities[action.product.name]++
+      return {...state, quantities: newQuantities}
     case DECREASED_QUANTITY:
-      newState = Object.assign({}, state)
-      if (newState.quantities[action.product.name] > 1) {
-        newState.quantities[action.product.name]--
+      newQuantities = Object.assign({}, state.quantities)
+      if (newQuantities[action.product.name] > 1) {
+        newQuantities[action.product.name]--
       }
-      return {...state, quantities: newState.quantities}
+      return {...state, quantities: newQuantities}
     default:
       return state
   }
