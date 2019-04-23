@@ -58,9 +58,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    increasedQuantity: () => dispatch(increasedQuantity()),
-    decreasedQuantity: () => dispatch(decreasedQuantity()),
-    deletedFromCart: () => dispatch(deletedFromCart())
+    increasedQuantity: product => dispatch(increasedQuantity(product)),
+    decreasedQuantity: product => dispatch(decreasedQuantity(product)),
+    deletedFromCart: deletedProduct => dispatch(deletedFromCart(deletedProduct))
   }
 }
 
