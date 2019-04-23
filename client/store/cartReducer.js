@@ -39,7 +39,6 @@ export const placeAnOrder = cart => {
     const newOrderNum = response.data
     console.log(newOrderNum, 'new order num')
 
-    
     dispatch(placedAnOrder(newOrderNum))
   }
 }
@@ -80,9 +79,9 @@ export default function(state = initialState, action) {
       if (newQuantities[action.product.name] > 1) {
         newQuantities[action.product.name]--
       }
-      return {...state, quantities: newState.quantities}
+      return {...state, quantities: newQuantities}
     case PLACED_AN_ORDER:
-     return {cart: [], quantities: {}, orderNum: action.orderNum}
+      return {cart: [], quantities: {}, orderNum: action.orderNum}
     default:
       return state
   }
