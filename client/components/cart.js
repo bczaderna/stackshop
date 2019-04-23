@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import CartRow from './cartRow'
+import EmptyCart from './emptyCart'
 import {
   increasedQuantity,
   decreasedQuantity,
@@ -11,7 +12,9 @@ class Cart extends Component {
   render() {
     const itemsInBag = this.props.itemsInBag
 
-    return (
+    return itemsInBag.length === 0 ? (
+      <EmptyCart />
+    ) : (
       <div>
         <table id="cart">
           <tbody>
