@@ -40,7 +40,7 @@ class Cart extends Component {
         <div>
           YOUR TOTAL: $
           {itemsInBag.reduce((totalPrice, item) => {
-            return totalPrice + item.price
+            return totalPrice + item.price * this.props.quantities[item.name]
           }, 0)}.00
         </div>
         <button type="button">CHECKOUT</button>
