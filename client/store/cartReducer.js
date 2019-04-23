@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 //action types
 export const ADDED_TO_CART = 'ADDED_TO_CART'
 export const INCREASED_QUANTITY = 'INCREASED_QUANTITY'
