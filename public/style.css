@@ -2,11 +2,13 @@
   box-sizing: border-box;
   margin: 5px;
 }
+
 h1 {
   padding: 1%;
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 a {
   text-decoration: none;
   color: gray;
@@ -21,6 +23,7 @@ body {
   font-family: 'Open Sans', arial, sans-serif;
   align-items: center;
 }
+
 .cart {
   background: #4571eb;
   padding: 30px;
@@ -93,7 +96,29 @@ button:hover {
   margin-right: none;
 }
 
-/* .bagQuantity {
-  align-content: center;
-  font-size: 100;
-} */
+/* Cart Component */
+#cartComponent {
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.table-header {
+  font-size: 12px;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.checkoutSection {
+  position: absolute;
+  right: 0px;
+  width: 320px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cart-item-img {
+  max-width: 150px;
+}

@@ -6,10 +6,10 @@ import {Redirect} from 'react-router-dom'
 import {
   increasedQuantity,
   decreasedQuantity,
-  deletedFromCart, 
+  deletedFromCart,
   placeAnOrder
 } from '../store/cartReducer'
-import ShippingInfoForm from './shippingInfoForm';
+import ShippingInfoForm from './shippingInfoForm'
 
 class Cart extends Component {
   constructor(props) {
@@ -25,15 +25,14 @@ class Cart extends Component {
   handleButtonClick() {
     this.setState({inCheckout: true})
   }
-  
-  render() {
 
+  render() {
     const itemsInBag = this.props.itemsInBag
 
     return itemsInBag.length === 0 ? (
       <EmptyCart />
     ) : (
-      <div>
+      <div id="cartComponent">
         <table id="cart">
           <tbody>
             <tr className="table-header">
@@ -55,25 +54,40 @@ class Cart extends Component {
             ))}
           </tbody>
         </table>
-        <div>
-          YOUR TOTAL: $
-          {itemsInBag
-            .reduce((totalPrice, item) => {
-              return totalPrice + item.price * this.props.quantities[item.name]
-            }, 0)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.00
+        <div className="checkoutSection">
+          <div className="cartTotal">
+            YOUR TOTAL: $
+            {itemsInBag
+              .reduce((totalPrice, item) => {
+                return (
+                  totalPrice + item.price * this.props.quantities[item.name]
+                )
+              }, 0)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.00
+          </div>
+          {this.state.inCheckout ? (
+            <div>
+              <ShippingInfoForm />
+              <button
+                type="button"
+                onClick={async () => {
+                  await this.props.placeAnOrder(this.props.cart)
+                  this.props.history.push({
+                    pathname: '/confirmation',
+                    state: {orderNum: 15}
+                  })
+                }}
+              >
+                Submit Order
+              </button>
+            </div>
+          ) : (
+            <button type="button" onClick={() => this.handleButtonClick()}>
+              Checkout
+            </button>
+          )}
         </div>
-        {this.state.inCheckout ? <div><ShippingInfoForm />
-        <button type='button' onClick={async () => {
-          await this.props.placeAnOrder(this.props.cart)
-          this.props.history.push({
-            pathname: '/confirmation',
-            state: {orderNum: 15}
-          })
-        }}>Submit Order</button></div>
-        : <button type="button" onClick={() => this.handleButtonClick()}>Checkout</button>}
-      
       </div>
     )
   }
@@ -91,10 +105,11 @@ const mapDispatchToProps = dispatch => {
   return {
     increasedQuantity: product => dispatch(increasedQuantity(product)),
     decreasedQuantity: product => dispatch(decreasedQuantity(product)),
-    deletedFromCart: deletedProduct => dispatch(deletedFromCart(deletedProduct)),
-    placeAnOrder: (cart) => {
+    deletedFromCart: deletedProduct =>
+      dispatch(deletedFromCart(deletedProduct)),
+    placeAnOrder: cart => {
       dispatch(placeAnOrder(cart))
-  }
+    }
   }
 }
 
