@@ -40,6 +40,11 @@ class SingleProduct extends Component {
         <div>
           <h2>{product.name}</h2>
           <img src={product.imageUrl} />
+          <div>
+            PRICE: ${product.price
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.00
+          </div>
 
           {this.renderRedirect(product)}
           <button type="button" onClick={this.setRedirect}>

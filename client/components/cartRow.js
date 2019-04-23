@@ -23,7 +23,7 @@ const CartRow = props => {
           Remove
         </button>
       </td>
-      <td>${item.price}.00</td>
+      <td>${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.00</td>
     </tr>
   )
 }
