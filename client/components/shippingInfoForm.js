@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-//do I need an addShippingInfo thunk? Do I need an ordersReducer?
+//make this a dumb component for now that just renders out a fake form ?
 
 class ShippingInfoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      address: "",
+      streetName: "",
+      city: "",
+      state: "",
+      zipCode: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +27,10 @@ class ShippingInfoForm extends Component {
 
     this.props.addShippingInfo(this.state);
     this.setState({
-      address: ''
+      streetName: "",
+      city: "",
+      state: "",
+      zipCode: ""
     });
   }
 
@@ -37,63 +43,71 @@ class ShippingInfoForm extends Component {
           <br />
           <br />
           <label className="label">
-            Address:
+            Street Name:
             <input
               type="text"
-              name="address"
+              name="streetName"
               onChange={this.handleChange}
-              value={this.state.address}
+              value={this.state.streetName}
               required
             />
           </label>
           <br />
 
           <label className="label">
-            Shipping Method:
+            City:
             <input
               type="text"
-              name="shippingmethod"
+              name="city"
               onChange={this.handleChange}
-              value={this.state.shippingmethod}
+              value={this.state.city}
               required
             />
           </label>
           <br />
 
           <label className="label">
-            More Shipping Stuff:
+            State:
             <input
               type="text"
-              name="moreshippingstuff"
+              name="state"
               onChange={this.handleChange}
-              value={this.state.moreshippingstuff}
+              value={this.state.state}
             />
           </label>
           <br />
+
+          <label className="label">
+            Zip Code:
+            <input
+              type="text"
+              name="zipCode"
+              onChange={this.handleChange}
+              value={this.state.zipCode}
+            />
+          </label>
           <br />
 
-          <button type="submit" className="label">
+          
+          <br />
+
+          {/* <button type="submit" className="label">
             Submit Shipping Info
-          </button>
+          </button> */}
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    //what needs to go here? Do I even need any piece of Redux state here?
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addShippingInfo: shippingInfo => dispatch(addShippingInfo(shippingInfo))
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     //saving this for later when we want to add shipping info to the database
+//     addShippingInfo: shippingInfo => dispatch(addShippingInfo(shippingInfo))
+//   };
+// };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  null,
+  null,
 )(ShippingInfoForm);
