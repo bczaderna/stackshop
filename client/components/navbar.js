@@ -4,39 +4,53 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
-const Navbar = ({handleClick, isLoggedIn, email}) => (
-  <div>
-    <Link to="/">
-      <h1>Happy Mart</h1>
-    </Link>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <div>Welcome, {email}!</div>
-          <Link to="/home">View Account</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
+const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
+  let bagQuantity = Object.values(quantities).reduce((totalQ, Q) => {
+    return totalQ + Q
+  }, 0)
 
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/cart">
-            <img
-              src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_18-512.png"
-              width="30px"
-            />{' '}
-          </Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-)
+  return (
+    <div>
+      <Link to="/">
+        <h1>Happy Mart</h1>
+      </Link>
+      <nav>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+            <div>Welcome, {email}!</div>
+            <Link to="/home">View Account</Link>
+            <a href="#" onClick={handleClick}>
+              Logout
+            </a>
+            <Link to="/cart">
+              <img
+                src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_18-512.png"
+                width="30px"
+              />
+            </Link>
+            {bagQuantity}
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+            <Link to="/cart">
+              <img
+                src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_18-512.png"
+                width="30px"
+              />
+              {bagQuantity}
+            </Link>
+          </div>
+        )}
+      </nav>
+      <hr />
+    </div>
+  )
+}
 
 /**
  * CONTAINER
@@ -44,7 +58,8 @@ const Navbar = ({handleClick, isLoggedIn, email}) => (
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
-    email: state.user.email
+    email: state.user.email,
+    quantities: state.cart.quantities
   }
 }
 

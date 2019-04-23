@@ -4,8 +4,6 @@ import Cart from './cart'
 const CartRow = props => {
   let item = props.item
   let quantities = props.quantities
-  console.log('PROPS!!!!!', props)
-
   return (
     <tr>
       <td>
