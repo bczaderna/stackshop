@@ -1,6 +1,3 @@
-import axios from 'axios'
-// import {UPDATE} from 'sequelize/types/lib/query-types'
-
 //action types
 export const ADDED_TO_CART = 'ADDED_TO_CART'
 export const INCREASED_QUANTITY = 'INCREASED_QUANTITY'
@@ -33,8 +30,6 @@ const initialState = {
   cart: [],
   quantities: {}
 }
-
-//NOTE: we will need to add logic for finding totalCartPrice and totalCartItems in the front-end component, inside the render, before the return.
 
 //reducer
 export default function(state = initialState, action) {

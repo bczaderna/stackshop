@@ -2,11 +2,9 @@ import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {gettingSingleProduct} from '../store/productsReducer'
-import {addedToCart} from '../store/cartReducer'
+import {addedToCart, increasedQuantity} from '../store/cartReducer'
 
 class SingleProduct extends Component {
-  //On Tuesday, get id from React Router using req.params.match...? then use id as an argument in the thunk
-
   state = {
     redirect: false
   }
@@ -20,14 +18,21 @@ class SingleProduct extends Component {
   }
 
   renderRedirect = product => {
+    let idArr = this.props.cart.map(item => {
+      return item.id
+    })
     if (this.state.redirect) {
-      this.props.addedToCart(product)
+      if (idArr.includes(product.id)) {
+        this.props.increasedQuantity(product)
+      } else {
+        this.props.addedToCart(product)
+      }
       return <Redirect to="/" />
     }
   }
 
   render() {
-    const {product, cart} = this.props
+    const {product} = this.props
 
     if (!product.id) return <div>Loading...</div>
     else
@@ -45,8 +50,6 @@ class SingleProduct extends Component {
   }
 }
 
-//addToCart(state.product)
-
 const mapStateToProps = state => {
   return {
     product: state.products.selectedProduct,
@@ -57,7 +60,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     gettingSingleProduct: id => dispatch(gettingSingleProduct(id)),
-    addedToCart: addedProduct => dispatch(addedToCart(addedProduct))
+    addedToCart: addedProduct => dispatch(addedToCart(addedProduct)),
+    increasedQuantity: product => dispatch(increasedQuantity(product))
   }
 }
 
