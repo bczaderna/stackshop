@@ -39,9 +39,12 @@ class Cart extends Component {
         </table>
         <div>
           YOUR TOTAL: $
-          {itemsInBag.reduce((totalPrice, item) => {
-            return totalPrice + item.price * this.props.quantities[item.name]
-          }, 0)}.00
+          {itemsInBag
+            .reduce((totalPrice, item) => {
+              return totalPrice + item.price * this.props.quantities[item.name]
+            }, 0)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.00
         </div>
         <button type="button">CHECKOUT</button>
       </div>
