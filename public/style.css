@@ -1,36 +1,56 @@
-body {
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 5px;
 }
-
+h1 {
+  text-align: center;
+}
 a {
   text-decoration: none;
+  color: gray;
+  transition: color 0.5s ease;
 }
 
-label {
-  display: block;
+a:hover {
+  color: black;
+}
+
+body {
+  font-family: 'Open Sans', arial, sans-serif;
+  align-items: center;
+}
+.cart {
+  background: #4571eb;
+  padding: 30px;
+}
+
+img {
+  max-height: 300px;
+  max-width: 300px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.productCard {
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
-  display: inline-block;
-  margin: 1em;
-}
-
-form div {
-  margin: 1em;
-  display: inline-block;
+  display: row;
+  padding: 14px 16px;
+  font-size: 17px;
 }
 
 button {
-  padding: 1em 2em;
-  background-color: #da5a8b;
+  padding: 0.5em 1em;
+  background-color: #4571eb;
   color: white;
-  border: none;
   font-size: 1em;
   transition: all 0.1s ease;
-  outline: none;
   border-radius: 10px;
 }
 
 button:hover {
-  background-color: #e295b9;
+  background-color: #95b4e2;
 }

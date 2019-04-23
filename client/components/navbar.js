@@ -7,7 +7,7 @@ import {logout} from '../store'
 const Navbar = ({handleClick, isLoggedIn, email}) => (
   <div>
     <Link to="/">
-      <h1>HappyMart</h1>
+      <h1>Happy Mart</h1>
     </Link>
     <nav>
       {isLoggedIn ? (
@@ -22,13 +22,14 @@ const Navbar = ({handleClick, isLoggedIn, email}) => (
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
+
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
           <Link to="/cart">
             <img
-              src="https://pbs.twimg.com/profile_images/670310483589623809/8MS4_joS.jpg"
+              src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_18-512.png"
               width="30px"
-            />
+            />{' '}
           </Link>
         </div>
       )}

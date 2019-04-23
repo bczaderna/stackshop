@@ -11,7 +11,7 @@ import Cart from './cart'
 
 //can I just render the Cart component or do I need to re-write the Cart logic here?
 
-//how do we get all the 'order' info to go into the placeAnOrder thunk? 
+//how do we get all the 'order' info to go into the placeAnOrder thunk?
 
 class ConfirmationPage extends Component {
 
@@ -31,7 +31,7 @@ class ConfirmationPage extends Component {
             // <ShippingInfoForm />
 
         )
-    } 
+    }
 }
 
 const mapStateToProps = state => {
