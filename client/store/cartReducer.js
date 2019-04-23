@@ -47,7 +47,8 @@ export const placeAnOrder = cart => {
 //initial state
 const initialState = {
   cart: [],
-  quantities: {}
+  quantities: {},
+  orderNum: null
 }
 
 //reducer
@@ -81,7 +82,7 @@ export default function(state = initialState, action) {
       }
       return {...state, quantities: newState.quantities}
     case PLACED_AN_ORDER:
-     return initialState;
+     return {cart: [], quantities: {}, orderNum: action.orderNum}
     default:
       return state
   }

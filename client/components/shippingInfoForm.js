@@ -91,9 +91,9 @@ class ShippingInfoForm extends Component {
           
           <br />
 
-          <button type="submit" className="label">
+          {/* <button type="submit" className="label">
             Submit Shipping Info
-          </button>
+          </button> */}
         </form>
       </div>
     );

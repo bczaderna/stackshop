@@ -1,12 +1,26 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-const OrderConfirmation = props => {
-  return (
+class OrderConfirmation extends Component {
+
+  render () {
+    console.log("order Num", this.props.orderNum)
+
+    return (
     <div className="orderConfirmation">
-      <h1>Thank you for shopping with us!</h1>
+      <h2>Your order has been recieved. Thank you for shopping with us!</h2>
+      <h4>Your order number is: {this.props.orderNum}.</h4>
     </div>
-  )
+    )
+
+    }
 }
 
-export default OrderConfirmation
+const mapStateToProps = state => {
+  return {
+    orderNum: state.cart.orderNum
+  }
+}
+
+export default connect(mapStateToProps, null)(OrderConfirmation)
