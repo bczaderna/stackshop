@@ -37,7 +37,7 @@ class SingleProduct extends Component {
     if (!product.id) return <div>Loading...</div>
     else
       return (
-        <div>
+        <div className="singleProduct">
           <h2>{product.name}</h2>
           <img src={product.imageUrl} />
           <div>

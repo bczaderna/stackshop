@@ -1,13 +1,13 @@
 module.exports = [
   {
     imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVxwjoJdfLtWpAeeBnX9BzK3NVWaa4UDkO2Q2YK0mI8yJO0mQkZw',
+      'https://steemitimages.com/DQmT1Boht2f2EhKrJfi69AVSqxnFtQp9ygYLapoYdaAYTnK/love.jpg',
     name: 'Love',
     inventory: 10,
     price: 100000
   },
   {
-    imageUrl: 'https://www.911costumes.com/wp-content/uploads/500.jpg',
+    imageUrl: 'https://www.stripes.com/polopoly_fs/1.552344.1539856299!/image/image.jpg_gen/derivatives/landscape_900/image.jpg',
     name: 'Courage',
     inventory: 10,
     price: 600
@@ -26,7 +26,7 @@ module.exports = [
     price: 1000
   },
   {
-    imageUrl: 'https://i.imgur.com/I87DguD.jpg',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZt4_OpfBsoa6AOBkXZxRePfpGkPLfMiK_t6eu_tcbvfWYzxunWQ',
     name: 'Class',
     inventory: 10,
     price: 100
@@ -58,13 +58,7 @@ module.exports = [
     inventory: 10,
     price: 150
   },
-  {
-    imageUrl:
-      'https://www.charismaoncommand.com/wp-content/uploads/2014/08/charismatic.png',
-    name: 'Charisma',
-    inventory: 10,
-    price: 150
-  },
+
   {
     imageUrl:
       'https://pavilionshotel.com/wp-content/uploads/sites/67/2017/04/People-laughing-300x200-300x200.jpg',
@@ -102,7 +96,7 @@ module.exports = [
   },
   {
     imageUrl:
-      'https://dornob.com/wp-content/uploads/2009/06/giant-forest-tree-house-building.jpg',
+      'https://monomousumi.com/wp-content/uploads/foundations-of-happiness.jpg',
     name: 'Happiness',
     inventory: 10,
     price: 10000
