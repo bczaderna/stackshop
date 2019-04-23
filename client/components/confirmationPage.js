@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Navbar from './navbar'
 import Cart from './cart'
-
-// import ShippingInfoForm from './shippingInfoForm'
+import ShippingInfoForm from './shippingInfoForm'
 import { placeAnOrder } from '../store/cartReducer'
 
 <<<<<<< HEAD
@@ -18,16 +16,20 @@ import { placeAnOrder } from '../store/cartReducer'
 
 class ConfirmationPage extends Component {
 
-    submitOrder() {
-        this.props.placeAnOrder(props.cart);
-        //then display the confirmationView component
-    }
+    // submitOrder() {
+    //     this.props.placeAnOrder(props.cart);
+    //     //then display the confirmationView component
+    // }
 
     render() {
+        let cart = this.props.cart
         
         return (
-            // <Cart />
-            // <ShippingInfoForm />
+            <div id='confirmationPage'>
+            <Cart />
+            <ShippingInfoForm />
+            <button type='button' onClick={() => this.props.placeAnOrder(cart)}></button>
+            </div>
         )
     }
 }
@@ -41,7 +43,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         placeAnOrder: (cart) => {
-            dispatch(placeAnOrder(props.cart))
+            dispatch(placeAnOrder(cart))
         }
     }
 }
