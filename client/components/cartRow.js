@@ -1,5 +1,4 @@
 import React from 'react'
-import Cart from './cart'
 
 const CartRow = props => {
   let item = props.item
