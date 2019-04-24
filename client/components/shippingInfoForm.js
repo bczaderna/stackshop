@@ -1,37 +1,37 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 //make this a dumb component for now that just renders out a fake form ?
 
 class ShippingInfoForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      streetName: "",
-      city: "",
-      state: "",
-      zipCode: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      streetName: '',
+      city: '',
+      state: '',
+      zipCode: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
-    });
+    })
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
-    this.props.addShippingInfo(this.state);
+    this.props.addShippingInfo(this.state)
     this.setState({
-      streetName: "",
-      city: "",
-      state: "",
-      zipCode: ""
-    });
+      streetName: '',
+      city: '',
+      state: '',
+      zipCode: ''
+    })
   }
 
   render() {
@@ -39,11 +39,13 @@ class ShippingInfoForm extends Component {
       <div>
         <form className="background" onSubmit={this.handleSubmit}>
           <br />
-          <span className="section-title">Add Your Shipping Information Here :</span>
+          <span className="section-title">
+            Add Your Shipping Information Here:
+          </span>
           <br />
           <br />
           <label className="label">
-            Street Name:
+            Street Address:
             <input
               type="text"
               name="streetName"
@@ -51,6 +53,9 @@ class ShippingInfoForm extends Component {
               value={this.state.streetName}
               required
             />
+            {!this.state.streetName && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
@@ -63,6 +68,9 @@ class ShippingInfoForm extends Component {
               value={this.state.city}
               required
             />
+            {!this.state.city && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
@@ -74,6 +82,9 @@ class ShippingInfoForm extends Component {
               onChange={this.handleChange}
               value={this.state.state}
             />
+            {!this.state.state && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
@@ -85,10 +96,12 @@ class ShippingInfoForm extends Component {
               onChange={this.handleChange}
               value={this.state.zipCode}
             />
+            {!this.state.zipCode && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
-          
           <br />
 
           {/* <button type="submit" className="label">
@@ -96,7 +109,7 @@ class ShippingInfoForm extends Component {
           </button> */}
         </form>
       </div>
-    );
+    )
   }
 }
 
@@ -107,7 +120,4 @@ class ShippingInfoForm extends Component {
 //   };
 // };
 
-export default connect(
-  null,
-  null,
-)(ShippingInfoForm);
+export default connect(null, null)(ShippingInfoForm)

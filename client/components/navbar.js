@@ -20,12 +20,13 @@ const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
             <div>Welcome, {email}!</div>
             <div className="allNavLinks">
               {/* The navbar will show these links after you log in */}
-                <div className="navLinks">
-                  <Link to="/home">View Account</Link>
-                  <a href="#" onClick={handleClick}>
-                    Logout
-                  </a>
-                </div>
+              <div className="navLinks">
+                <Link to="/home">View Account</Link>
+                <a href="#" onClick={handleClick}>
+                  Logout
+                </a>
+                <Link to="/">Shop All</Link>
+              </div>
               <Link to="/cart" className="cartLink">
                 <img
                   src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_18-512.png"
@@ -41,6 +42,7 @@ const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
             <div className="navLinks">
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
+              <Link to="/">Shop All</Link>
             </div>
             <Link to="/cart" className="cartLink">
               <img
