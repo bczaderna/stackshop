@@ -153,3 +153,9 @@ table {
 .orderConfirmation {
   color: rgb(238, 100, 50)
 }
+
+#logo {
+  size: 200x;
+  display: flex;
+  align-content: center
+}
