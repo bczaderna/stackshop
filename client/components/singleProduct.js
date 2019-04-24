@@ -40,6 +40,7 @@ class SingleProduct extends Component {
         <div className="singleProduct">
           <h2>{product.name}</h2>
           <img src={product.imageUrl} />
+          <div className="product-desc">"{product.description}"</div>
           <div>
             PRICE: ${product.price
               .toString()
