@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import CartRow from './cartRow'
 import EmptyCart from './emptyCart'
-import {Redirect} from 'react-router-dom'
 import {
   increasedQuantity,
   decreasedQuantity,
@@ -15,8 +14,7 @@ class Cart extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      inCheckout: false,
-      didCheckout: false
+      inCheckout: false
     }
 
     this.handleButtonClick = this.handleButtonClick.bind(this)
@@ -74,8 +72,7 @@ class Cart extends Component {
                 onClick={async () => {
                   await this.props.placeAnOrder(this.props.cart)
                   this.props.history.push({
-                    pathname: '/confirmation',
-                    state: {orderNum: 15}
+                    pathname: '/confirmation'
                   })
                 }}
               >
