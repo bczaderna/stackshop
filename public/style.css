@@ -1,22 +1,23 @@
 * {
   box-sizing: border-box;
   margin: 5px;
+  background-color: #c8e4fd;
 }
 
 h1 {
   padding: 1%;
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
 }
 
 a {
   text-decoration: none;
-  color: gray;
-  transition: color 0.5s ease;
+  color: #EB8713
 }
 
 a:hover {
-  color: black;
+  color: rgb(238, 100, 50);
 }
 
 body {
@@ -25,8 +26,9 @@ body {
 }
 
 .cart {
-  background: #4571eb;
+  background: #EB8713;
   padding: 30px;
+  color: rgb(238, 100, 50)
 }
 
 img {
@@ -46,10 +48,12 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  
 }
 
 .singleProduct {
   display: row;
+  color: rgb(238, 100, 50)
 }
 
 nav a {
@@ -57,11 +61,12 @@ nav a {
   padding: 14px 16px;
   font-size: 17px;
   justify-self: center;
+  /* background-color: #c8e4fd */
 }
 
 button {
   padding: 0.5em 1em;
-  background-color: #4571eb;
+  background-color: #EB8713;
   color: white;
   font-size: 1em;
   transition: all 0.1s ease;
@@ -69,7 +74,7 @@ button {
 }
 
 button:hover {
-  background-color: #95b4e2;
+  background-color:rgb(238, 100, 50);
 }
 
 .allNavLinks {
@@ -105,11 +110,13 @@ button:hover {
 #cartComponent {
   /* display: flex;
   justify-content: space-between; */
+  color: rgb(238, 100, 50)
+  
 }
 
 #table-header {
   font-size: 12px;
-  color: grey;
+  color:rgb(238, 100, 50);
   font-weight: bold;
 }
 
@@ -141,4 +148,8 @@ table {
 .plus-quantity-button {
   padding: 0.25em 0.5em;
   border-radius: 50%;
+}
+
+.orderConfirmation {
+  color: rgb(238, 100, 50)
 }
