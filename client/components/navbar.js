@@ -14,7 +14,8 @@ const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
     <div>
       <Link to="/">
         {/* <h1>HappyMart</h1> */}
-        <img id='logo' src='https://i.imgur.com/mG7203W.png'/>
+        <div id='logo'>
+        <img id='logo-image' src='https://i.imgur.com/mG7203W.png'/></div>
       </Link>
       <nav>
         {isLoggedIn ? (

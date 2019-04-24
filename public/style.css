@@ -33,7 +33,6 @@ body {
 
 img {
   max-height: 300px;
-  max-width: 300px;
   border-radius: 5px;
   margin-right: 10px;
 }
@@ -155,7 +154,11 @@ table {
 }
 
 #logo {
-  size: 200x;
   display: flex;
-  align-content: center
+  align-content: center;
+  max-height: 400px;
+}
+
+#logo-image{
+  width: 470px;
 }
