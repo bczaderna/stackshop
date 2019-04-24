@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
       if (req.user) {
           id = req.user.id
       } else {
-          id = 1
+          id = 3
       }
       //create a record on the order database
       let order = {
