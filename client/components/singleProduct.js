@@ -33,6 +33,7 @@ class SingleProduct extends Component {
 
   render() {
     const {product} = this.props
+    console.log("inventory is", product.inventory)
 
     if (!product.id) return <div>Loading...</div>
     else
@@ -46,11 +47,16 @@ class SingleProduct extends Component {
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.00
           </div>
-
+          {product.inventory === 1? <div>{`There is just one ${product.name} left! Buy now!`}</div>: null}
+          
+          {product.inventory <= 0? <div>{`We're sorry, ${product.name} has been so popular that it has sold out.`}</div>: 
+          <div>
           {this.renderRedirect(product)}
           <button type="button" onClick={this.setRedirect}>
             Add to Bag
           </button>
+          </div>}
+          
         </div>
       )
   }
