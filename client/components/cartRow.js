@@ -4,17 +4,25 @@ const CartRow = props => {
   let item = props.item
   let quantities = props.quantities
   return (
-    <tr>
+    <tr className="cart-row">
       <td>
         <img src={item.imageUrl} className="cart-item-img" />
       </td>
       <td>{item.name}</td>
       <td>
-        <button type="button" onClick={() => props.decreasedQuantity(item)}>
+        <button
+          type="button"
+          className="minus-quantity-button"
+          onClick={() => props.decreasedQuantity(item)}
+        >
           -
         </button>
         {quantities[item.name]}
-        <button type="button" onClick={() => props.increasedQuantity(item)}>
+        <button
+          type="button"
+          className="plus-quantity-button"
+          onClick={() => props.increasedQuantity(item)}
+        >
           +
         </button>
       </td>

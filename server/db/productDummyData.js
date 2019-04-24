@@ -7,13 +7,15 @@ module.exports = [
     price: 100000
   },
   {
-    imageUrl: 'https://www.stripes.com/polopoly_fs/1.552344.1539856299!/image/image.jpg_gen/derivatives/landscape_900/image.jpg',
+    imageUrl:
+      'https://www.stripes.com/polopoly_fs/1.552344.1539856299!/image/image.jpg_gen/derivatives/landscape_900/image.jpg',
     name: 'Courage',
     inventory: 10,
     price: 600
   },
   {
-    imageUrl: 'https://i.ytimg.com/vi/l1j8WbM4kYk/hqdefault.jpg',
+    imageUrl:
+      'https://www.washingtonpost.com/resizer/UXPvo4HsFdKKx72SCcADx9g55kQ=/1400x0/arc-anglerfish-washpost-prod-thelily-washpost.s3.amazonaws.com/public/E2S3AEC47RCG7MHSVLDRYXP46I.jpg',
     name: 'Respect',
     inventory: 10,
     price: 5000
@@ -26,7 +28,8 @@ module.exports = [
     price: 1000
   },
   {
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZt4_OpfBsoa6AOBkXZxRePfpGkPLfMiK_t6eu_tcbvfWYzxunWQ',
+    imageUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZt4_OpfBsoa6AOBkXZxRePfpGkPLfMiK_t6eu_tcbvfWYzxunWQ',
     name: 'Class',
     inventory: 10,
     price: 100
@@ -89,7 +92,7 @@ module.exports = [
   },
   {
     imageUrl:
-      'https://st4.depositphotos.com/5989284/20588/i/1600/depositphotos_205884086-stock-photo-portrait-sad-crying-child-ice.jpg',
+      'https://media.tenor.com/images/c123796202540282a8c6d25dff2324bb/raw',
     name: 'Sympathy',
     inventory: 10,
     price: 100

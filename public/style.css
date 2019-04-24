@@ -96,23 +96,33 @@ button:hover {
   margin-right: none;
 }
 
+.warning {
+  font-size: 10px;
+  color: red;
+}
+
 /* Cart Component */
 #cartComponent {
   /* display: flex;
   justify-content: space-between; */
 }
 
-.table-header {
+#table-header {
   font-size: 12px;
-  /* display: flex;
-  justify-content: space-between; */
+  color: grey;
+  font-weight: bold;
 }
 
-.checkoutSection {
+.cart-row {
+  vertical-align: middle;
+  border-bottom: 1px solid grey;
+}
+
+/* .checkoutSection {
   position: absolute;
   right: 0px;
   width: 320px;
-}
+} */
 
 table {
   border-collapse: collapse;
@@ -121,4 +131,14 @@ table {
 
 .cart-item-img {
   max-width: 150px;
+}
+
+.minus-quantity-button {
+  padding: 0.25em 0.6em;
+  border-radius: 50%;
+}
+
+.plus-quantity-button {
+  padding: 0.25em 0.5em;
+  border-radius: 50%;
 }

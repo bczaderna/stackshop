@@ -35,7 +35,7 @@ class Cart extends Component {
       <div id="cartComponent">
         <table id="cart">
           <tbody>
-            <tr className="table-header">
+            <tr id="table-header" className="cart-row">
               <td>ITEM</td>
               <td>NAME</td>
               <td>QTY</td>

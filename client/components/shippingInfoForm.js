@@ -53,6 +53,9 @@ class ShippingInfoForm extends Component {
               value={this.state.streetName}
               required
             />
+            {!this.state.streetName && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
@@ -65,6 +68,9 @@ class ShippingInfoForm extends Component {
               value={this.state.city}
               required
             />
+            {!this.state.city && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
@@ -76,6 +82,9 @@ class ShippingInfoForm extends Component {
               onChange={this.handleChange}
               value={this.state.state}
             />
+            {!this.state.state && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
@@ -87,6 +96,9 @@ class ShippingInfoForm extends Component {
               onChange={this.handleChange}
               value={this.state.zipCode}
             />
+            {!this.state.zipCode && (
+              <span className="warning">*Required Field</span>
+            )}
           </label>
           <br />
 
