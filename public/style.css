@@ -55,10 +55,9 @@ img {
 
 nav a {
   display: row;
-  padding: 14px 16px;
   font-size: 17px;
   justify-self: center;
-  /* background-color: #c8e4fd */
+  padding: 0 10px;
 }
 
 button {
@@ -78,6 +77,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 35px;
 }
 
 .navLinks {
@@ -162,7 +162,7 @@ table {
   margin: auto;
 }
 
-#logo-image{
+#logo-image {
   /* width: 460px;
   margin: auto; */
 }
