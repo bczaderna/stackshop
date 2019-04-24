@@ -156,9 +156,12 @@ table {
 #logo {
   display: flex;
   align-content: center;
-  max-height: 400px;
+  max-height: 280px;
+  width: 490px;
+  margin: auto;
 }
 
 #logo-image{
-  width: 470px;
+  /* width: 460px;
+  margin: auto; */
 }
