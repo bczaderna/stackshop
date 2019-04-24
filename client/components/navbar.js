@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
+
 const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
   let bagQuantity = Object.values(quantities).reduce((totalQ, Q) => {
     return totalQ + Q
@@ -12,7 +13,9 @@ const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
   return (
     <div>
       <Link to="/">
-        <h1>HappyMart</h1>
+        {/* <h1>HappyMart</h1> */}
+        <div id='logo'>
+        <img id='logo-image' src='https://i.imgur.com/2tn83wM.png'/></div>
       </Link>
       <nav>
         {isLoggedIn ? (
