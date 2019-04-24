@@ -13,7 +13,7 @@ module.exports = [
     name: 'Courage',
     inventory: 10,
     price: 600,
-    description: ''
+    description: 'Stronger than yesterday.'
   },
   {
     imageUrl:
@@ -29,7 +29,7 @@ module.exports = [
     name: 'Reputation',
     inventory: 10,
     price: 1000,
-    description: ''
+    description: "Your reputation precedes you. Make sure it's a good one."
   },
   {
     imageUrl:
@@ -37,7 +37,7 @@ module.exports = [
     name: 'Class',
     inventory: 10,
     price: 100,
-    description: ''
+    description: 'Been living in an uptown world.'
   },
   {
     imageUrl:
@@ -68,7 +68,7 @@ module.exports = [
     name: 'Confidence',
     inventory: 10,
     price: 150,
-    description: ''
+    description: "What's wrong with being confident?"
   },
 
   {
@@ -85,7 +85,7 @@ module.exports = [
     name: 'Charm',
     inventory: 10,
     price: 500,
-    description: ''
+    description: 'Charm, in most men and nearly all women, is a decoration.'
   },
   {
     imageUrl:
@@ -93,7 +93,8 @@ module.exports = [
     name: 'Wisdom',
     inventory: 10,
     price: 10000,
-    description: ''
+    description:
+      'Knowledge is knowing a tomato is a fruit. Wisdom is not putting it in a fruit salad.'
   },
   {
     imageUrl:
@@ -110,7 +111,8 @@ module.exports = [
     name: 'Sympathy',
     inventory: 10,
     price: 100,
-    description: ''
+    description:
+      "Whenever you feel sad, just remember that somewhere in this world there's an idiot pulling a door that says 'push'."
   },
   {
     imageUrl:
