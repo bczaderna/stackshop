@@ -41,7 +41,10 @@ class SingleProduct extends Component {
         <div className="singleProduct">
           <h2>{product.name}</h2>
           <img src={product.imageUrl} />
+          <br></br>
           <div className="product-desc">"{product.description}"</div>
+          
+          <br></br>
           <div>
             PRICE: ${product.price
               .toString()
@@ -52,6 +55,7 @@ class SingleProduct extends Component {
           {product.inventory <= 0? <div>{`We're sorry, ${product.name} has been so popular that it has sold out.`}</div>: 
           <div>
           {this.renderRedirect(product)}
+          <br></br>
           <button type="button" onClick={this.setRedirect}>
             Add to Bag
           </button>
