@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const CartRow = props => {
   let item = props.item
@@ -6,9 +7,13 @@ const CartRow = props => {
   return (
     <tr className="cart-row">
       <td>
-        <img src={item.imageUrl} className="cart-item-img" />
+        <Link to={`/products/${item.id}`}>
+          <img src={item.imageUrl} className="cart-item-img" />
+        </Link>
       </td>
-      <td>{item.name}</td>
+      <td>
+        <Link to={`/products/${item.id}`}>{item.name}</Link>
+      </td>
       <td>
         <button
           type="button"

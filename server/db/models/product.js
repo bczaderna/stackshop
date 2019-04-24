@@ -31,9 +31,10 @@ const Product = db.define('product', {
       notEmpty: true,
       min: 0
     }
+  },
+  description: {
+    type: Sequelize.TEXT
   }
 })
-
-
 
 module.exports = Product
