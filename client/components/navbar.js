@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
+
 const Navbar = ({handleClick, isLoggedIn, email, quantities}) => {
   let bagQuantity = Object.values(quantities).reduce((totalQ, Q) => {
     return totalQ + Q
