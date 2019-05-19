@@ -1,18 +1,54 @@
 const User = require('./user')
+const Order = require('./order')
+const Product = require('./product')
+const db = require('../db')
+const Sequelize = require('sequelize')
 
-/**
- * If we had any associations to make, this would be a great place to put them!
- * ex. if we had another model called BlogPost, we might say:
- *
- *    BlogPost.belongsTo(User)
- */
+const itemPurchase = db.define('itemPurchase', {
+  quantity: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  purchasePrice: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      min: 0
+    }
+  }
+})
 
-/**
- * We'll export all of our models here, so that any time a module needs a model,
- * we can just require it from 'db/models'
- * for example, we can say: const {User} = require('../db/models')
- * instead of: const User = require('../db/models/user')
- */
+itemPurchase.beforeCreate((async (instance) => {
+  //how do we know the quantity ordered?
+  let quantityOrdered = instance.dataValues.quantity
+
+  //find the thing and find out how much is left
+  let productToUpdate = await Product.findByPk(instance.dataValues.productId)
+  console.log(instance.dataValues.productId, 'instance product id?')
+  console.log(productToUpdate, 'product to update?')
+  
+  let currentInventory = productToUpdate.dataValues.inventory
+  let newInventory = currentInventory - quantityOrdered
+  console.log(newInventory, 'new inventory')
+
+  //decrement the inventory number
+  await productToUpdate.update({inventory: newInventory})
+}))
+
+Order.belongsTo(User)
+User.hasMany(Order)
+
+Product.belongsToMany(Order, {
+  through: 'itemPurchase'
+})
+Order.belongsToMany(Product, {
+  through: 'itemPurchase'
+})
+
 module.exports = {
-  User
+  User,
+  Order,
+  Product,
+  itemPurchase
 }
